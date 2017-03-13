@@ -1,0 +1,125 @@
+.subMenu { 
+	background-color: #666C60;
+	color :white;
+	height: 50px;				
+}
+
+.subMenu button{
+	background-color: #A4A4A4;
+	border-radius: 8px;
+	padding: 4px 15px;
+	border-color: #666;
+}		
+
+.subMenu button:hover{
+	background-color: #D8D8D8;
+}
+
+
+
+.subContent {
+	background-color: red;
+	width: 865px;
+	right: 400px;
+	position: static;
+	right: 8px;
+	bottom: 8px;
+}
+
+.subContent div{
+	border-color: black;
+	border-radius: 8px;
+}
+
+
+.details{
+	background-color: blue;
+	width: 400px;
+	height: 515px;
+	position: fixed;
+	right: 8px;
+	bottom: 8px;
+}
+
+
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #333;
+	width: 100%;
+}
+
+ul.tabs li {
+	float: left;
+	margin: 0;
+	cursor: pointer;
+	padding: 0px 21px;
+	height: 31px;
+	line-height: 31px;
+	border-top: 1px solid #333;
+	border-left: 1px solid #333;
+	border-bottom: 1px solid #333;
+	background-color: white;
+	color: black;
+	overflow: hidden;
+	position: relative;
+}
+
+.tab_last { border-right: 1px solid #333; }
+
+ul.tabs li:hover {
+	background-color: #ccc;
+	color: #333;
+}
+
+ul.tabs li.active {
+	background-color: #fff;
+	color: #333;
+	border-bottom: 1px solid #fff;
+	display: block;
+}
+
+.subMenu { 
+	background-color: #666C60;
+	color :white;
+	height: 50px;				
+}
+
+.subMenu button{
+	background-color: #A4A4A4;
+	border-radius: 8px;
+	padding: 4px 15px;
+	border-color: #666;
+}		
+
+.subMenu button:hover{
+	background-color: #D8D8D8;
+}
+
+
+.subContent {
+	background-color: red;
+	width: 865px;
+	right: 400px;
+	position: static;
+	right: 8px;
+	bottom: 8px;
+}
+
+.subContent div{
+	border-color: black;
+	border-radius: 8px;
+}
+
+
+.details{
+	background-color: blue;
+	width: 400px;
+	height: 515px;
+	position: fixed;
+	right: 8px;
+	bottom: 8px;
+}
