@@ -4,22 +4,61 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 20%;
+  height: 30%;
+  margin-left: 10px;
+}
+body{
+   opacity: 1;
+}
+
+h1{
+  font-family: Tangerine;
+  font-size: 70px;
+}
+
 header {
   margin-top: 20px;
   margin-left: 900px;
 }
 
 .container-tabs {
-  max-width: 600px;
-	margin: 10vh auto 0;
+  max-width: 900px;
+	margin: 4vh auto 0;
 	position: relative;
   background-color: black;
 }
 
+/*Definir espacio del contenedor de los divs*/
+.contentResources{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: absolute;
+  left: 2%;
+  width: 585px;
+  height: 90%;
+}
+
+/*Definir divs  a mostrar*/
+.contentResources div{
+  border: solid;
+  border-color: #666;
+  height: 20%;
+  border-radius: 20px/30px;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.contentResources div p{
+  height: 50%;
+  width: 90%;
+  font-size: 14px;
+  margin-left: 100px;
+}
 
 .viewTab {
 	display: none;
-  width: 40%;
 }
 
 .tab button{
@@ -69,7 +108,6 @@ header {
   color: white;    
  }
 
-
 /*TABS span + div del misma transicion*/
 .viewTab:target + .tab .tab-e {
   background: #666;
@@ -82,24 +120,114 @@ header {
  
  }
 
-@media screen and (max-width:600px){
-	.container-tabs {
-    width: 100%;
-    min-width: 400px;
-    margin: 2.5rem 0;
-  }
-  .tab div {
-    font-size: 1rem;
-    line-height: 1.1;
-    padding: 1rem 5px;
-    width: 100%;
-  }  
-  .tab .tab-e {
-		font-size: 1rem;
-		padding: .5rem 0;
-    text-align: center;
-    line-height: 1.5rem;
-    width: 25%;
-    margin-right: 0;
-	}
+ /*SUBCONTENEDORES*/
+ .viewContainer{
+  margin-top: 8%;
+  margin-left: 15%;
+  border: solid;
+  position: relative;
+  width: 70%;
+  height: 450px; 
  }
+
+ .details{
+  margin-left: 70%;
+  border-left: 2px solid black;
+  border-color: #666;
+}
+
+.tab .tab-e:target + .viewContainer {
+  content: "";
+}  
+
+/*#dashboard {
+  margin-left: 100px;
+  position: relative;
+}
+*/
+
+.circleBase{
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    position: absolute;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    background: silver;
+    border: 2px solid black;
+}
+
+.sumary {
+  height: 150px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.history {
+  height: 270px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+/*POPUP ADD RESOURCE*/
+.overlay {
+  position: fixed;
+  top: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+.popup .close:hover {
+  color: #666;
+}
+
+/*BOTONES DELETE RESOURCE*/
+  .contentResources .delete {
+  width:20px;
+  height:20px;
+  justify-content:center;
+  align-text : center;
+  font-size :15px;
+  border-radius: 20px/50px;
+  background-color:silver;
+  font-family:verdana;
+  border-style:none;
+}
+
+.delete:hover {
+  cursor:pointer;
+  background-color:#666;
+}
+
+
+
+
+
