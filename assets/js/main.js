@@ -1,0 +1,6 @@
+//PRINCIPAL
+  //CARGAR AGENTES DESDE LA BASE DE DATOS
+    loadAgents();
+  //CARGAR RECURSOS PARA CADA AGENTE
+    loadResourcesForAgents();
+  
