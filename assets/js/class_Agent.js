@@ -19,7 +19,7 @@
         this.resources.splice(this.resources.indexOf(resource), 1);
       }
       this.printAgentData = function () {
-        var data = [this.domain, this.status, this.ipAddress, this.library];
+        var data = [this.domain, this.status, this.ipAddress, this.path];
         //this.resources
         return data;
       }
