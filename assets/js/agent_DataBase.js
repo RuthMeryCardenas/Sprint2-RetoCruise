@@ -22,3 +22,5 @@
       agents[5].addNewResources("ubuntu,core-duo");
       agents[6].addNewResources("ubuntu,firefox3,mySQL");
     }
+    //Exportando el módulo
+    //module.exports.loadAgents = loadAgents;//2
