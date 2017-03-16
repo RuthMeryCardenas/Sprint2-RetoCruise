@@ -18,9 +18,17 @@
         console.log(this.resources.indexOf(resource));
         this.resources.splice(this.resources.indexOf(resource), 1);
       }
-      this.printAgentData = function () {
-        var data = [this.domain, this.status, this.ipAddress, this.path];
-        //this.resources
-        return data;
+      this.printAgentData = function (parent) {
+        var div = document.createElement('div');
+        var span = document.createElement('span');
+        var p = document.createElement('p');
+
+        div.setAttribute('class', 'agents');
+        span.setAttribute('class', 'circleBase');
+        span.appendChild(p);
+        div.appendChild(span);
+        parent.appendChild(div);
+        p.innerHTML = this.domain + ' | ' + this.status + ' | ' + this.ipAddress + ' | ' + this.path +
+                      '<br><a class="link"   href="#popup1">specify sources</a> | Resources: ';
       }
     }
