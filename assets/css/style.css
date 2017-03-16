@@ -27,8 +27,6 @@ header {
   margin-left: 900px;
 }
 
-
-
 #container-tabs {
   max-width: 90%;
   margin-top: 2%;
@@ -154,7 +152,6 @@ header {
   position: relative;
 }
 */
-
 .circleBase{
     border-radius: 50%;
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
@@ -222,7 +219,7 @@ header {
 
 
 /*BOTONES DELETE RESOURCE*/
-  #contentResources .delete{
+#contentResources .delete{
   width:20px;
   height:20px;
   justify-content:center;
@@ -232,7 +229,6 @@ header {
   font-family:verdana;
   border-style:none;
 }
-
 
 #all {
   border: solid;
