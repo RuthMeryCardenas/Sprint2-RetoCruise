@@ -6,90 +6,73 @@
   </head>
   <body>
     <header>
-      <p>Signed is a <a href="#1">Member</a> <a href="#2">Sign out</a></p>
+      <p>Signed is a <u>Member </u><a href="#x">Sign out</a></p>
     </header>
-
-    <div id="all">
-      <h1>Cruise</h1>
-      <div id="container-tabs">
-        <div class="tabsMenu">
-          <span class="viewTab" id="1"></span>
-          <div class="tab">
-            <button type="button" class="tab-e">DASHBOARD</button>
-            <div>
-             <p>Dashboard En mantenimiento</p>
-           </div>
-          </div>
+    <!--<img src="https://www.thoughtworks.com/imgs/tw-logo.png">-->
+    <div id="mainContainer">
+      <h1 id="titleApp">Cruise</h1>
+      <div id="mainMenu">
+        <div id="tabsMenu">
+          <!-- <span class="viewTab" id="1"></span> -->
+            <!-- <a href="#1" class="tab-e">DASHBOARD</a> -->
+            <button type="button" class="tab_Button">DASHBOARD</button>
+            <button type="button" class="tab_Button">MY CRUISE</button>
+            <button type="button" class="tab_Button">AGENTS</button>
+            <button type="button" class="tab_Button">HELP</button>
         </div>
-        <div class="tabsMenu">
-          <span class="viewTab" id="2"></span>
-          <div class="tab">
-            <button type="button" class="tab-e">MY CRUISE</button>
-            <div>
-              <p>My Cruise En mantenimiento</p>
-            </div>
-          </div>
-        </div>
-        <div class="tabsMenu">
-          <span class="viewTab" id="3"></span>
-          <div class="tab">
-            <button type="button" class="tab-e">AGENTS</button>
-            <div>
-              <p>Agents
+        <div id="subMenuTab">
+          <p>Agents
               <button class="agentsFilter">All</button>
               <button class="agentsFilter">Physical</button>
               <button class="agentsFilter">Virtual</button>
+          </p>
+        </div>
+      </div>
+      <div id="secondaryContainer">
+          <div id="content">
+            <span id="addResourcePopup" class="overlay">
+                <div class="popup">
+                  <p>(Separate multiple resources name with commas)</p>
+                  <input type="text">
+                  <button>Add Resources</button>
+                  <a id="closePopup" href="">&times;</a>
+                </div>
+            </span>
+            <div style="background-color: #F3F781">
+              <span class="circleBase"></span>
+              <p>djstdmngbgr03.thoughtworks.com | building | 192.168.1.3 | /var/lib/cruise-agent<br>
+                <a class="link" href="#addResourcePopup" id="1">specify sources</a>
+                | Resources: Ubuntu <button class="delete">x</button> | Firefox3 <button class="delete">x</button>
               </p>
             </div>
+            <div style="background-color:#9FF781 ">
+              <span class="circleBase"></span>
+                <p>djstdmngbgr03.thoughtworks.com | building | 192.168.1.3 | /var/lib/cruise-agent<br>
+                  <a class="link" href="#addResourcePopup" id="2">specify sources</a>
+                  | Resources: Ubuntu <button class="delete">x</button> | Firefox3 <button class="delete">x</button>
+                </p>
+            </div>
           </div>
-        </div>
-        <div class="tabsMenu">
-          <span class="viewTab" id="4"></span>
-          <div class="tab">
-            <button type="button" class="tab-e">HELP</button>
-            <div>
-              <p>Help En mantenimiento</p>
+          <div id="details"><br>
+            <div id="sumary">
+              <strong><p>Sumary</p></strong>
+              <hr>
+              <p>Iddle 1</p>
+              <p>Build 2</p>
+              <p>Build 3</p>
+            </div><br>
+            <div id="history">
+              <strong><p>History</p></strong>
+              <hr>
+              <p>bjstdmngbgr02/Aceptance-test</p>
+              <p>bjstdmngbgr02/Aceptance-test</p>
+              <p>bjstdmngbgr02/Aceptance-test</p>
+              <p>bjstdmngbgr02/Aceptance-test</p>
+              <p>bjstdmngbgr02/Aceptance-test</p>
+              <p>bjstdmngbgr02/Aceptance-test</p>
             </div>
           </div>
         </div>
-      </div>
-      <div id="viewContainer">
-        <div id="contentResources">
-          <div style="background-color:#D9F383">
-            <span class="circleBase"></span>
-            <p>djstdmngbgr03.thoughtworks.com | building | 192.168.1.3 | /var/lib/cruise-agent<br>
-              <a class="link" href="#popup1">specify sources</a>
-              | Resources: Ubuntu <button class="delete">x</button> | Firefox3 <button class="delete">x</button>
-            </p>
-          </div>
-          <span id="popup1" class="overlay">
-              <div class="popup">
-                <p>(Separate multiple resources name with commas)</p>
-                <input type="text">
-                <button>Add Resources</button>
-                <a class="close" href="#">&times;</a>
-              </div>
-           </span>
-        <div id="details"><br>
-          <div id="sumary">
-            <strong><p>Sumary</p></strong>
-            <hr>
-            <p>Iddle 1</p>
-            <p>Build 2</p>
-            <p>Build 3</p>
-          </div><br>
-          <div id="history">
-            <strong><p>History</p></strong>
-            <hr>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-            <p>bjstdmngbgr02/Aceptance-test</p>
-          </div>
-        </div>
-      </div>
     </div>
     <script type="text/javascript" src="assets/js/class_Agent.js"></script>
     <script type="text/javascript" src="assets/js/agent_DataBase.js"></script>
