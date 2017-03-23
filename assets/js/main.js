@@ -1,8 +1,8 @@
 //PRINCIPAL
   window.addEventListener('load', function (){
-    //MENÚ PRINCIPAL
-      var mainMenuTabs = document.getElementsByClassName('tab-e');
-      //var contentTabDiv = document.getElementById('viewContainer');
+    //BOTONES DEL MENÚ PRINCIPAL
+      var mainMenuTabs = document.getElementsByClassName('tab_Button');
+      var content = document.getElementById('content');
       //PESTAÑA "DAHSBOARDS"
       mainMenuTabs[0].addEventListener('click', function () {
         //Lo que muestra esta pestaña
@@ -17,16 +17,19 @@
           loadAgents();
         //CARGAR RECURSOS PARA CADA AGENTE
           loadResourcesForAgents();
-          var contentAgentsDiv = document.getElementById('contentResources');
+        //BOTONES DEL FILTRO AGENTES
           var agentsFilterButton = document.getElementsByClassName('agentsFilter');
           agentsFilterButton[0].addEventListener('click', function () {
-            printAllAgents(contentAgentsDiv);
+            printAllAgents(content);
+            createPopup(content);
           });
           agentsFilterButton[1].addEventListener('click', function () {
-            printAgentsByFilter(contentAgentsDiv, "physical");
+            printAgentsByFilter(content, "physical");
+            createPopup(content);
           });
           agentsFilterButton[2].addEventListener('click', function () {
-            printAgentsByFilter(contentAgentsDiv, "virtual")
+            printAgentsByFilter(content, "virtual")
+            createPopup(content);
           });
       });
       //PESTAÑA "HELP"

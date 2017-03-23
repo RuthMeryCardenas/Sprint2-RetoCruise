@@ -18,17 +18,18 @@
         console.log(this.resources.indexOf(resource));
         this.resources.splice(this.resources.indexOf(resource), 1);
       }
-      this.printAgentData = function (parent) {
+      this.printAgentData = function (parent) {//Imprime los datos del Agente
         var div = document.createElement('div');
         var span = document.createElement('span');
         var p = document.createElement('p');
-
-        div.setAttribute('class', 'agents');
+        var span2 = document.createElement('span');
         span.setAttribute('class', 'circleBase');
-        span.appendChild(p);
-        div.appendChild(span);
+        this.status == 'idle' ? div.setAttribute('style', 'background-color: #9FF781') : div.setAttribute('style', 'background-color: #F3F781');
         parent.appendChild(div);
+        div.appendChild(span);
+        div.appendChild(p);
+        p.appendChild(span2);
         p.innerHTML = this.domain + ' | ' + this.status + ' | ' + this.ipAddress + ' | ' + this.path +
-                      '<br><a class="link"   href="#popup1">specify sources</a> | Resources: ';
+                      '<br><a class="link"   href="#addResourcePopup">specify sources</a> | Resources: ';
       }
     }

@@ -54,18 +54,18 @@ body{
           transition: all .5s ease;
          }
       #subMenuTab{
-       background: #666;
-       width: 90%;
-       margin-top: 140px;
-       margin-left: 5%;
-       position: absolute;
-       top: 1rem;
-       left: 0;
-       padding: 1rem;
-       font-size: -1rem;
-       line-height: 1.2;
-       z-index: 5;
-       opacity:-1; /*tiempo de transicion*/
+        background: #666;
+        width: 100%;
+        margin-top: 40px;
+        margin-left: 0%;
+        position: relative;
+        padding: 1rem;
+        font-size: -1rem;
+        line-height: 1.2;
+        z-index: 5;
+        /*top: 1rem;*/
+        /*left: 0;*/
+       /*opacity:-1; tiempo de transicion*/
       }
         .agentsFilter{
           background-color: silver;
@@ -75,7 +75,7 @@ body{
           border: 1px #666;
         }
     #secondaryContainer{
-     margin-top: 7.5%;
+     margin-top: 0%;
      margin-left: 0%;
      border: solid;
      border-color: #666;
@@ -88,6 +88,17 @@ body{
         left: 2%;
         width: 50%;
         height: 90%;
+      }
+        .circleBase{
+        border-radius: 50%;
+        behavior: url(PIE.htc);
+        position: absolute;
+        margin-left: 20px;
+        width: 60px;
+        height: 60px;
+        padding: 20px;
+        background: silver;
+        border: 2px solid black;
       }
         #addResourcePopup {
           margin: 70px auto;
@@ -106,9 +117,6 @@ body{
             font-size: 30px;
             font-weight: bold;
             color: black;
-          }
-          .popup #closePopup:hover {
-            color: #666;
           }
           .overlay {
             position: fixed;
@@ -149,7 +157,7 @@ body{
               background-color:silver;
               font-family:verdana;
               border-style:none;
-          }
+            }
       #details{
        margin-left: 70%;
        border-left: 2px solid black;
@@ -178,30 +186,21 @@ body{
 	background: #666;
   color: white;
  }*/
-
 /*TABS span + div del misma transicion*/
 /*.viewTab:target + .tab .tab_Button{
   background: #666;
   color: white;
   z-index: 2;
  }*/
+ /*.tab_Button:target + #contentTab {
+   content: "";
+ }*/
+
 /*EFFECTS*/
  button.tab_Button:hover{
    background: #666;
    color: white;
  }
-/*.tab_Button:target + #contentTab {
-  content: "";
-}*/
-
-.circleBase{
-    border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-    position: absolute;
-    margin-left: 20px;
-    width: 60px;
-    height: 60px;
-    padding: 20px;
-    background: silver;
-    border: 2px solid black;
-}
+ .popup #closePopup:hover {
+   color: #666;
+ }
