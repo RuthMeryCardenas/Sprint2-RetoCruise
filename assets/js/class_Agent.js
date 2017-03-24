@@ -18,7 +18,7 @@
         console.log(this.resources.indexOf(resource));
         this.resources.splice(this.resources.indexOf(resource), 1);
       }
-      this.printResources = function (parent) {
+      this.printResources = function (parent) {//Imprime los recursos del Agente
         var resourcesSpan = document.createElement('span');
         var deleteButton;
         parent.appendChild(resourcesSpan);

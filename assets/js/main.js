@@ -17,19 +17,24 @@
           loadAgents();
         //CARGAR RECURSOS PARA CADA AGENTE
           loadResourcesForAgents();
+        //CONTADORES DEL TOTAL DE AGENTES "IDLE" O "BUILDING"
+          var accountants = document.getElementsByClassName('accountant');
         //BOTONES DEL FILTRO AGENTES
           var agentsFilterButton = document.getElementsByClassName('agentsFilter');
           agentsFilterButton[0].addEventListener('click', function () {
             printAllAgents(content);
             createPopup(content);
+            printSummary(accountants, 'all');
           });
           agentsFilterButton[1].addEventListener('click', function () {
-            printAgentsByFilter(content, "physical");
+            printAgentsByFilter(content, 'physical');
             createPopup(content);
+            printSummary(accountants, 'physical');
           });
           agentsFilterButton[2].addEventListener('click', function () {
-            printAgentsByFilter(content, "virtual")
+            printAgentsByFilter(content, 'virtual');
             createPopup(content);
+            printSummary(accountants, 'virtual');
           });
       });
       //PESTAÑA "HELP"

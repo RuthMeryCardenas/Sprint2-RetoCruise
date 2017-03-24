@@ -1,5 +1,25 @@
 //ADMINISTRADOR DE AGENTES
   //FUNCIONES
+    //Imprime el total de "Agentes" con estado "idle" y "building"
+    function printSummary(accountants, type) {
+      var buildingCounter, idleCounter;
+      buildingCounter = agents.filter(function (agent) {
+        if (this == 'all') {
+          return agent.status == 'building';
+        }else {
+          return agent.status == 'building' && agent.type == this;
+        }
+      }, type);
+      idleCounter = agents.filter(function (agent) {
+        if (this == 'all') {
+          return agent.status == 'idle';
+        }else {
+          return agent.status == 'idle' && agent.type == this;
+        }
+      }, type);
+      accountants[0].appendChild(document.createTextNode(buildingCounter.length));
+      accountants[1].appendChild(document.createTextNode(idleCounter.length));
+    }
     //Crea un POPUP para agregar nuevos recursos
     function createPopup(parent) {
       var span = document.createElement('span');
