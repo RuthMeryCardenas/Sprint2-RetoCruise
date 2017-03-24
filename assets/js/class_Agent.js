@@ -18,18 +18,39 @@
         console.log(this.resources.indexOf(resource));
         this.resources.splice(this.resources.indexOf(resource), 1);
       }
-      this.printAgentData = function (parent) {//Imprime los datos del Agente
-        var div = document.createElement('div');
-        var span = document.createElement('span');
-        var p = document.createElement('p');
-        var span2 = document.createElement('span');
-        span.setAttribute('class', 'circleBase');
-        this.status == 'idle' ? div.setAttribute('style', 'background-color: #9FF781') : div.setAttribute('style', 'background-color: #F3F781');
-        parent.appendChild(div);
-        div.appendChild(span);
-        div.appendChild(p);
-        p.appendChild(span2);
-        p.innerHTML = this.domain + ' | ' + this.status + ' | ' + this.ipAddress + ' | ' + this.path +
-                      '<br><a class="link"   href="#addResourcePopup">specify sources</a> | Resources: ';
+      this.printResources = function (parent) {
+        var resourcesSpan = document.createElement('span');
+        var deleteButton;
+        parent.appendChild(resourcesSpan);
+        resourcesSpan.appendChild(document.createTextNode(' | Resources: '));
+        this.resources.forEach(function(resource){
+          deleteButton = document.createElement('button');
+          deleteButton.setAttribute('class', 'delete');
+          resourcesSpan.appendChild(document.createTextNode(resource + ' '));
+          resourcesSpan.appendChild(deleteButton);
+          deleteButton.appendChild(document.createTextNode('x'));
+          resourcesSpan.appendChild(document.createTextNode('  '));
+        });
       }
+      this.printAgentData = function (parent) {//Imprime los datos del Agente
+        var agentDiv = document.createElement('div');
+        var circleSpan = document.createElement('span');
+        var dataP = document.createElement('p');
+        var popupA = document.createElement('a');
+
+        circleSpan.setAttribute('class', 'circleBase');
+        this.status == 'idle' ? agentDiv.setAttribute('style', 'background-color: #9FF781') : agentDiv.setAttribute('style', 'background-color: #F3F781');
+        popupA.setAttribute('class', 'link');
+        popupA.setAttribute('href', '#addResourcePopup');
+
+        parent.appendChild(agentDiv);
+        agentDiv.appendChild(circleSpan);
+        agentDiv.appendChild(dataP);
+        dataP.appendChild(document.createTextNode(this.domain + ' | ' + this.status + ' | ' + this.ipAddress + ' | ' + this.path));
+        dataP.appendChild(document.createElement('br'));
+        dataP.appendChild(popupA);
+        popupA.appendChild(document.createTextNode("specify sources"));
+        this.printResources(dataP);
+      }
+
     }
