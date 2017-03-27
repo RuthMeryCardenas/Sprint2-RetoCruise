@@ -23,17 +23,14 @@
           var agentsFilterButton = document.getElementsByClassName('agentsFilter');
           agentsFilterButton[0].addEventListener('click', function () {
             printAllAgents(content);
-            createPopup(content);
             printSummary(accountants, 'all');
           });
           agentsFilterButton[1].addEventListener('click', function () {
             printAgentsByFilter(content, 'physical');
-            createPopup(content);
             printSummary(accountants, 'physical');
           });
           agentsFilterButton[2].addEventListener('click', function () {
             printAgentsByFilter(content, 'virtual');
-            createPopup(content);
             printSummary(accountants, 'virtual');
           });
       });
