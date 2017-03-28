@@ -24,25 +24,24 @@
       a.innerHTML = '&times;';
     }
     //Crea un document fragmet "SPAN" para mostrar los recursos de un "Agente"
-    function createResourcesSpan (parent, agent, idAgentDiv) {
+    function createResourcesSpan (parent, agent, idAgent) {
       var listResourcesSpan = document.createElement('span');
-      // var resourceSpan, resourceLabel , deleteButton;
+      listResourcesSpan.setAttribute('id', 'agent' + idAgent);
       parent.appendChild(listResourcesSpan);
-      agent.resources.forEach(function(resource, index){
+      agent.resources.forEach(function(resource){
         var resourceSpan = document.createElement('span');
         var resourceLabel = document.createTextNode(resource + ' ');
         var deleteButton = document.createElement('button');
 
-        resourceSpan.setAttribute('id', idAgentDiv + '-' + index);
         deleteButton.setAttribute('class', 'delete');
-
+        deleteButton.setAttribute('value', resource);
         listResourcesSpan.appendChild(resourceSpan);
         resourceSpan.appendChild(resourceLabel);
         resourceSpan.appendChild(deleteButton);
         resourceSpan.appendChild(document.createTextNode('  '));
         deleteButton.appendChild(document.createTextNode('x'));
         deleteButton.addEventListener('click', function (e) {
-          deleteAgentResource (resourceSpan.getAttribute('id'));
+          deleteAgentResource (listResourcesSpan.getAttribute('id'), deleteButton.getAttribute('value'));
           listResourcesSpan.removeChild(e.target.parentNode);
         });
       });
@@ -54,11 +53,10 @@
       var dataP = document.createElement('p');
       var popupA = document.createElement('a');
 
-      agentDiv.setAttribute('id', 'agent' + indexAgent);
       circleSpan.setAttribute('class', 'circleBase');
       agent.status == 'idle' ? agentDiv.setAttribute('style', 'background-color: #9FF781') : agentDiv.setAttribute('style', 'background-color: #F3F781');
       popupA.setAttribute('class', 'link');
-      popupA.setAttribute('href', '#addResourcePopup');
+      // popupA.setAttribute('href', '#addResourcePopup');
 
       parent.appendChild(agentDiv);
       agentDiv.appendChild(circleSpan);
@@ -68,7 +66,11 @@
       dataP.appendChild(popupA);
       dataP.appendChild(document.createTextNode(' | Resources: '));
       popupA.appendChild(document.createTextNode("specify sources"));
-      createResourcesSpan (dataP, agent, 'agent' + indexAgent);
+      popupA.addEventListener('click', function (e) {
+      //   document.getElementById('addResourcePopup').style.display = 'block';
+      //   console.log('hola te estoy llamando');
+      // });
+      createResourcesSpan (dataP, agent, indexAgent);
     }
     //Imprime todos los "Agentes"
     function printAllAgents (parent) {
@@ -111,7 +113,6 @@
       agents[agent].addNewResources(resources);
     }
     //Elimina un recurso de un Agente
-    function deleteAgentResource (idResource){
-      //Formato de idResource -->"agent[indice_de_agente]-[indice_de_recurso]"
-      agents[idResource.substring(5, idResource.indexOf('-'))].deleteAResource(idResource.substring(idResource.indexOf('-') + 1, idResource.length));
+    function deleteAgentResource (idAgent, resource){
+      agents[idAgent.substring(5, idAgent.length)].deleteAResource(resource);
     }

@@ -14,16 +14,7 @@
           this.resources.push(arrayResources[i].trim());
         }
       }
-      this.deleteAResource = function (idResource){//Elimina un recurso del Agente
-        console.log('Hay recursos ' + this.resources.length);
-        console.log('id enviado ' + idResource);
-        // this.resources.splice(idResource, 1);
-        if (this.resources.length > 1) {
-          this.resources.splice(idResource, 1);
-        }else {
-          console.log("cuidado quedan 1");
-          this.resources = [];
-        }
-        console.log('Quedan ' + this.resources.length);
+      this.deleteAResource = function (resource){//Elimina un recurso del Agente
+        this.resources.splice(this.resources.indexOf(resource), 1);
       }
     }
