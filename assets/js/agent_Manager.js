@@ -1,9 +1,5 @@
 //ADMINISTRADOR DE AGENTES
   //FUNCIONES
-    //Crear evento
-    // function eventClick(agent) {
-    //
-    // }
     //Crea un POPUP para agregar nuevos recursos
     function createPopup(parent) {
       var span = document.createElement('span');
@@ -30,12 +26,12 @@
     //Crea un document fragmet "SPAN" para mostrar los recursos de un "Agente"
     function createResourcesSpan (parent, agent, idAgentDiv) {
       var listResourcesSpan = document.createElement('span');
-      var resourceSpan, resourceLabel , deleteButton;
+      // var resourceSpan, resourceLabel , deleteButton;
       parent.appendChild(listResourcesSpan);
       agent.resources.forEach(function(resource, index){
-        resourceSpan = document.createElement('span');
-        resourceLabel = document.createTextNode(resource + ' ');
-        deleteButton = document.createElement('button');
+        var resourceSpan = document.createElement('span');
+        var resourceLabel = document.createTextNode(resource + ' ');
+        var deleteButton = document.createElement('button');
 
         resourceSpan.setAttribute('id', idAgentDiv + '-' + index);
         deleteButton.setAttribute('class', 'delete');
@@ -46,18 +42,19 @@
         resourceSpan.appendChild(document.createTextNode('  '));
         deleteButton.appendChild(document.createTextNode('x'));
         deleteButton.addEventListener('click', function (e) {
-          e.target.parentNode.parentNode.removeChild(resourceSpan);
+          deleteAgentResource (resourceSpan.getAttribute('id'));
+          listResourcesSpan.removeChild(e.target.parentNode);
         });
       });
     }
     //Crea un document fragmet "DIV" para los mostrar los datos de un "Agente"
-    function createAgentDiv (parent , agent, idAgentDiv) {
+    function createAgentDiv (parent , agent, indexAgent) {
       var agentDiv = document.createElement('div');
       var circleSpan = document.createElement('span');
       var dataP = document.createElement('p');
       var popupA = document.createElement('a');
 
-      agentDiv.setAttribute('id', 'agent' + idAgentDiv);
+      agentDiv.setAttribute('id', 'agent' + indexAgent);
       circleSpan.setAttribute('class', 'circleBase');
       agent.status == 'idle' ? agentDiv.setAttribute('style', 'background-color: #9FF781') : agentDiv.setAttribute('style', 'background-color: #F3F781');
       popupA.setAttribute('class', 'link');
@@ -71,7 +68,7 @@
       dataP.appendChild(popupA);
       dataP.appendChild(document.createTextNode(' | Resources: '));
       popupA.appendChild(document.createTextNode("specify sources"));
-      createResourcesSpan (dataP, agent, 'agent' + idAgentDiv);
+      createResourcesSpan (dataP, agent, 'agent' + indexAgent);
     }
     //Imprime todos los "Agentes"
     function printAllAgents (parent) {
@@ -114,6 +111,7 @@
       agents[agent].addNewResources(resources);
     }
     //Elimina un recurso de un Agente
-    function deleteAgentResource (agent, resource){
-      agents[agent].deleteAResource(resource);
+    function deleteAgentResource (idResource){
+      //Formato de idResource -->"agent[indice_de_agente]-[indice_de_recurso]"
+      agents[idResource.substring(5, idResource.indexOf('-'))].deleteAResource(idResource.substring(idResource.indexOf('-') + 1, idResource.length));
     }
