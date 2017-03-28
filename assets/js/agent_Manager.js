@@ -7,21 +7,24 @@
       var p = document.createElement('p');
       var input = document.createElement('input');
       var button = document.createElement('button');
-      var a = document.createElement('a');
+      var jump = document.createElement('br'); 
+      var close = document.createElement('button');
       span.setAttribute('class', 'overlay');
       span.setAttribute('id', 'addResourcePopup');
       div.setAttribute('class', 'popup');
       input.setAttribute('type', 'text');
-      a.setAttribute('id', 'closePopup');
+      close.setAttribute('id', 'closePopup');
+      button.setAttribute('id','add');
       parent.appendChild(span);
       span.appendChild(div);
       div.appendChild(p);
       div.appendChild(input);
+      div.appendChild(jump);
       div.appendChild(button);
-      div.appendChild(a);
+      div.appendChild(close);
       p.innerHTML = '(Separate multiple resources name with commas)';
       button.innerHTML = 'Add Resources';
-      a.innerHTML = '&times;';
+      close.innerHTML = 'Close';
     }
     //Crea un document fragmet "SPAN" para mostrar los recursos de un "Agente"
     function createResourcesSpan (parent, agent, idAgentDiv) {
