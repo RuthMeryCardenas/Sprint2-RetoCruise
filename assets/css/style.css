@@ -190,26 +190,34 @@ header {
    .accountant{
     padding-left: 70%;
   }
-
-
-  .popup button {
+/*POPUP*/
+  #content .popup button {
     border-radius: 8px;
+    margin-top: 5px;
+    padding: 5px;
     border: 1px solid black; 
   }
 
-  .popup input[type="text"]{  
-    width: 70%;
-    height: 40%;
+  #content .popup input{  
+    width: 450px;
+    height: 30px;
+    top: -40px;
   }
 
+  #content .popup p{  
+    bottom: -50px;
+    height: 20px;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
 
-  /*POPUP*/
-  .popup{
-    position: fixed;
+  #content .popup{
+    position: absolute;
+    left: 25px;
     width: 500px;
-    height: 80px;
+    height: 110px;
     background-color: silver;
-    border:4px solid;
+    border : 2px silver solid;
   }
 
   .popup:after{
@@ -222,5 +230,5 @@ header {
     border-right: 15px solid transparent;
     position: absolute;
     left: 20%;
-    top: -40%; 
+    top: -30%; 
   }
