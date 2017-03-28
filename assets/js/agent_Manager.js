@@ -2,32 +2,43 @@
   //FUNCIONES
     //Crea un POPUP para agregar nuevos recursos
     function createPopup(parent) {
-      var span = document.createElement('span');
       var div = document.createElement('div');
       var p = document.createElement('p');
       var input = document.createElement('input');
       var button = document.createElement('button');
-      var a = document.createElement('a');
-      span.setAttribute('class', 'overlay');
-      span.setAttribute('id', 'addResourcePopup');
+      var jump = document.createElement('br');
+      var close = document.createElement('button');
       div.setAttribute('class', 'popup');
+      div.setAttribute('style', 'display: none');
+      div.setAttribute('id', 'addResourcePopup');
       input.setAttribute('type', 'text');
-      a.setAttribute('id', 'closePopup');
-      parent.appendChild(span);
-      span.appendChild(div);
+      input.setAttribute('id', 'addResources');
+      close.setAttribute('id', 'closePopup');
+      button.setAttribute('id','add');
+      parent.appendChild(div);
       div.appendChild(p);
       div.appendChild(input);
+      div.appendChild(jump);
       div.appendChild(button);
-      div.appendChild(a);
+      div.appendChild(close);
       p.innerHTML = '(Separate multiple resources name with commas)';
       button.innerHTML = 'Add Resources';
-      a.innerHTML = '&times;';
+      close.innerHTML = 'Close';
+      close.addEventListener('click',function(e){
+        e.preventDefault();
+        this.parentNode.style.display ='none';
+      });
+      button.addEventListener('click', function (e) {
+        addResourcesToAgent (this.getAttribute('value'), document.getElementById('addResources').value);
+        var parent = document.getElementById('agent' + this.getAttribute('value'));
+        var agent = agents[this.getAttribute('value')];
+        var idAgent = this.getAttribute('value');
+        parent.innerHTML = '';
+        createResourcesSpan (parent, agent, idAgent);
+      });
     }
     //Crea un document fragmet "SPAN" para mostrar los recursos de un "Agente"
     function createResourcesSpan (parent, agent, idAgent) {
-      var listResourcesSpan = document.createElement('span');
-      listResourcesSpan.setAttribute('id', 'agent' + idAgent);
-      parent.appendChild(listResourcesSpan);
       agent.resources.forEach(function(resource){
         var resourceSpan = document.createElement('span');
         var resourceLabel = document.createTextNode(resource + ' ');
@@ -35,14 +46,14 @@
 
         deleteButton.setAttribute('class', 'delete');
         deleteButton.setAttribute('value', resource);
-        listResourcesSpan.appendChild(resourceSpan);
+        parent.appendChild(resourceSpan);
         resourceSpan.appendChild(resourceLabel);
         resourceSpan.appendChild(deleteButton);
         resourceSpan.appendChild(document.createTextNode('  '));
         deleteButton.appendChild(document.createTextNode('x'));
         deleteButton.addEventListener('click', function (e) {
-          deleteAgentResource (listResourcesSpan.getAttribute('id'), deleteButton.getAttribute('value'));
-          listResourcesSpan.removeChild(e.target.parentNode);
+          deleteAgentResource (parent.getAttribute('id'), deleteButton.getAttribute('value'));
+          parent.removeChild(e.target.parentNode);
         });
       });
     }
@@ -52,11 +63,12 @@
       var circleSpan = document.createElement('span');
       var dataP = document.createElement('p');
       var popupA = document.createElement('a');
+      var listResourcesSpan = document.createElement('span');
 
       circleSpan.setAttribute('class', 'circleBase');
       agent.status == 'idle' ? agentDiv.setAttribute('style', 'background-color: #9FF781') : agentDiv.setAttribute('style', 'background-color: #F3F781');
       popupA.setAttribute('class', 'link');
-      // popupA.setAttribute('href', '#addResourcePopup');
+      listResourcesSpan.setAttribute('id', 'agent' + indexAgent);
 
       parent.appendChild(agentDiv);
       agentDiv.appendChild(circleSpan);
@@ -65,12 +77,14 @@
       dataP.appendChild(document.createElement('br'));
       dataP.appendChild(popupA);
       dataP.appendChild(document.createTextNode(' | Resources: '));
+      dataP.appendChild(listResourcesSpan);
       popupA.appendChild(document.createTextNode("specify sources"));
-      // popupA.addEventListener('click', function (e) {
-      //   document.getElementById('addResourcePopup').style.display = 'block';
-      //   console.log('hola te estoy llamando');
-      // });
-      createResourcesSpan (dataP, agent, indexAgent);
+      popupA.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('addResourcePopup').style.display = 'block';
+        document.getElementById('add').setAttribute('value', indexAgent);
+      });
+      createResourcesSpan (listResourcesSpan, agent, indexAgent);
     }
     //Imprime todos los "Agentes"
     function printAllAgents (parent) {
@@ -109,8 +123,8 @@
       accountants[1].appendChild(document.createTextNode(idleCounter.length));
     }
     //Agrega uno o más recursos de un Agente
-    function addResourcesToAgent (agent, resources) {
-      agents[agent].addNewResources(resources);
+    function addResourcesToAgent (idAgent, resources) {
+      agents[idAgent].addNewResources(resources);
     }
     //Elimina un recurso de un Agente
     function deleteAgentResource (idAgent, resource){
