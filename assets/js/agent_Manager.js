@@ -66,7 +66,7 @@
       dataP.appendChild(popupA);
       dataP.appendChild(document.createTextNode(' | Resources: '));
       popupA.appendChild(document.createTextNode("specify sources"));
-      popupA.addEventListener('click', function (e) {
+      // popupA.addEventListener('click', function (e) {
       //   document.getElementById('addResourcePopup').style.display = 'block';
       //   console.log('hola te estoy llamando');
       // });
